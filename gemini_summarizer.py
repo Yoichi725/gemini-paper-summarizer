@@ -7,6 +7,7 @@ import pytz
 import google.generativeai as genai
 
 def load_config():
+    # gemini-api と slack-webhook の呼び出し
     slack_webhook_url = os.getenv("SLACK_WEB_HOOK_URL")
     gemini_pro_api_key = os.getenv("GEMINI_PRO_API_KEY")
     return slack_webhook_url, gemini_pro_api_key
@@ -83,6 +84,3 @@ def summarize_papers(webhook_url, api_key, search_terms="%22Additive Manufacturi
 def main():
     webhook_url, api_key = load_config()
     summarize_papers(webhook_url, api_key, "%22Additive Manufacturing%22")
-
-if __name__ == "__main__":
-    main()
