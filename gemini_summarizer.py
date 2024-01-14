@@ -81,6 +81,6 @@ def summarize_papers(webhook_url, api_key, search_terms="%22Additive Manufacturi
         slack_notify(webhook_url, f'```{response.text}```')
         print("Slack notification sent...")
 
-def main():
+def main(event, context):
     webhook_url, api_key = load_config()
     summarize_papers(webhook_url, api_key, "%22Additive Manufacturing%22")
